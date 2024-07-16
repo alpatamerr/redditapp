@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/29739432/115553809-743c9c00-a273-11eb-8486-1464ae3d9ee3.png)
 
 ### Compact & Simple
-This is the main repo codebase of [Reddit Minimal](). All code for this project is within this repo.
+This is the main repo codebase of [Reddit Minimal](https://alp-atamer-ba1352.netlify.app). All code for this project is within this repo.
 
 ## Table of Contents
 1. [Introduction](#introduction)
