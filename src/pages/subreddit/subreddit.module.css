@@ -1,0 +1,18 @@
+.Subreddit {
+    display: flex;
+  }
+  
+  .post {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .skeleton {
+    margin-left: 30px;
+  }
+  
+  @media only screen and (max-width: 890px) {
+    .Subreddit {
+      flex-direction: column;
+    }
+  }

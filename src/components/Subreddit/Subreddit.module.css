@@ -1,0 +1,32 @@
+.Subreddit {
+    display: flex;
+    align-items: center;
+  }
+  
+  .Subreddit:hover {
+    background-color: rgb(245, 245, 245);
+    cursor: pointer;
+  }
+  
+  .subs {
+    margin: 0;
+    color: rgb(65, 65, 65);
+  }
+  .topic {
+    font-weight: 600;
+    color: rgb(65, 65, 65);
+    margin-bottom: 5px;
+    margin-top: 0px;
+  }
+  
+  .subInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 15px;
+  }
+  
+  a {
+    text-decoration: none;
+  }

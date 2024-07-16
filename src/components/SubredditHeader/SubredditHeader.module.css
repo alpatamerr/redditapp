@@ -1,0 +1,51 @@
+figure {
+    margin: 0;
+    background-position: center !important;
+    background-origin: content-box !important;
+    position: relative;
+    top: -10px;
+    left: -5px;
+    background-color: #c9c9c9 !important;
+  }
+  
+  .headerDivide {
+    display: flex;
+    position: relative;
+    z-index: 20;
+    align-items: center;
+    background-color: white;
+    margin-top: -13px;
+  }
+  
+  .headerContent {
+    display: flex;
+  }
+  .avatar {
+    border-radius: 100%;
+    margin-top: -30px;
+    margin-right: 15px;
+    border: 8px solid #ff4500;
+    background-color: white;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .reddit {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .redditTopic {
+    margin-top: 0;
+    font-weight: 500;
+    color: rgb(139, 139, 139);
+  }
+  @media only screen and (max-width: 340px) {
+    .headerContent {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

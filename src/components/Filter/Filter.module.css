@@ -1,0 +1,48 @@
+.Filter {
+    width: 100%;
+  }
+  
+  .FilterIcons {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .FilterIcons svg {
+    font-size: 2rem;
+  }
+  
+  .hot,
+  .top,
+  .trending {
+    margin: 0 40px;
+    display: flex;
+    align-items: center;
+    color: rgb(73, 73, 73);
+  }
+  
+  .hot:hover,
+  .top:hover,
+  .trending:hover {
+    color: rgb(136, 135, 135);
+  }
+  
+  .hot h3,
+  .top h3,
+  .trending h3 {
+    margin: 0;
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .FilterIcons {
+      flex-direction: column;
+    }
+  
+    .hot,
+    .top,
+    .trending {
+      margin-bottom: 20px;
+    }
+  }

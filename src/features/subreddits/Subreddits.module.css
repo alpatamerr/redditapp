@@ -1,0 +1,35 @@
+.Subreddits {
+    background-color: white;
+    border-radius: 4px;
+    padding: 25px 10px;
+    width: 350px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 2;
+  }
+  
+  .header {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(65, 65, 65);
+    margin-top: 0;
+    border-bottom: 2px solid rgb(65, 65, 65);
+  }
+  
+  .expandBtn {
+    background-color: white;
+    border-top: 2px solid rgb(185, 185, 185);
+    border-radius: 4px;
+    color: rgb(65, 65, 65);
+    font-size: 1.2rem;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 950px) {
+    .Subreddits {
+      display: none;
+    }
+  }

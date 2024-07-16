@@ -1,0 +1,40 @@
+.PostListItemSkeleton {
+    border: 1px solid rgb(230, 230, 230);
+    padding: 25px;
+    margin: 20px 0;
+    background-color: white;
+    border-radius: 8px;
+    flex-shrink: 1;
+  }
+  
+  .headerSkeleton {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .footerSkeleton {
+    margin-top: 10px;
+  }
+  
+  @media only screen and (max-width: 641px) {
+    .paragraphSkeleton {
+      max-width: 380px;
+    }
+  }
+  
+  @media only screen and (max-width: 415px) {
+    .paragraphSkeleton {
+      max-width: 210px;
+    }
+  
+    .footerSkeleton {
+      max-width: 190px;
+    }
+  }
+  
+  @media only screen and (max-width: 281px) {
+    .paragraphSkeleton,
+    .footerSkeleton {
+      max-width: 150px;
+    }
+  }

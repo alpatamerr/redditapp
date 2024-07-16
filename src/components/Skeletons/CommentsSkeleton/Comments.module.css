@@ -1,0 +1,13 @@
+.CommentsSkeleton {
+    padding: 25px;
+    background-color: rgb(243, 243, 243);
+    margin: 15px 0;
+    border: 1px solid #fc5113;
+    border-left: 3px solid #e03d02;
+  }
+  
+  .headerSkeleton,
+  .paragraphSkeleton,
+  .footerSkeleton {
+    margin: 8px 0;
+  }

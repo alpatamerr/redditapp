@@ -1,0 +1,100 @@
+.PostContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .Post {
+    margin: 20px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 90%;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .headerAuthor {
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #eb4002;
+  }
+  
+  .headerTime {
+    color: rgb(109, 109, 109);
+    margin-right: 10px;
+  }
+  
+  .headerTopic {
+    font-weight: 500;
+  }
+  
+  .video {
+    text-align: center;
+    outline: none;
+  }
+  
+  .video video {
+    max-width: 100%;
+  }
+  
+  .Post h1 {
+    padding-top: 25px;
+  }
+  
+  .Post h1,
+  .postImgContainer {
+    text-align: center;
+  }
+  
+  .postImg {
+    max-height: 100vh;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .title hr {
+    background-color: #ff4500;
+    height: 3px;
+    width: 80px;
+    margin-bottom: 40px;
+    border: none;
+  }
+  
+  .selfText {
+    line-height: 30px;
+    padding: 0 25px;
+  }
+  
+  .Comments h3 {
+    margin: 50px 0;
+  }
+  
+  @media only screen and (max-width: 950px) {
+    .PostContainer {
+      grid-template-columns: 1fr;
+    }
+    .Post {
+      margin: 20px 0;
+      padding: 10px;
+      border: none;
+    }
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .Post {
+      width: 100vw;
+    }
+  
+    .postContainer {
+      padding: 0 !important;
+    }
+  }

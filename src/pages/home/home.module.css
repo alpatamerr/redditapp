@@ -1,0 +1,30 @@
+.App {
+    overflow: hidden;
+  }
+  
+  .App main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  @media only screen and (max-width: 980px) {
+    .App main {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .mainContainer,
+    .subredditContainer {
+      padding: 0 !important;
+    }
+  }
+  
+  @media only screen and (max-width: 420px) {
+    .App main {
+      align-content: center;
+    }
+    .App main header {
+      width: 100vw;
+    }
+  }

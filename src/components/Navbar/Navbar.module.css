@@ -1,0 +1,47 @@
+.Navbar {
+    background-color: rgba(48, 48, 48, 1);
+    position: relative;
+    z-index: 100;
+  }
+  
+  .NavbarContent {
+    display: flex;
+    flex: 1;
+    margin-left: 50px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .Navbar h2 {
+    color: #ff4500;
+  }
+  
+  .Navbar span {
+    font-style: italic;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .redditLogo {
+    border: 3px solid #ff4500;
+    border-radius: 100%;
+    margin-right: 5px;
+    background-color: white;
+  }
+  
+  @media only screen and (max-width: 580px) {
+    .Navbar {
+      padding: 10px;
+    }
+    .redditLogo {
+      margin-right: 10px;
+    }
+    .logo h2 {
+      display: none;
+    }
+  }
