@@ -3,30 +3,33 @@ import { API } from "../../util/API";
 
 export const loadPost = createAsyncThunk(
   "post/loadPost",
-  async ({ reddit, id }) => await API.loadPost(reddit, id)
+  async ({ reddit, id }) => {
+    const post = await API.loadPost(reddit, id);
+    return post;
+  }
 );
 
 export const postSlice = createSlice({
   name: "post",
   initialState: {
-    post: [],
-    loadingPost: false,
-    hasErrors: false,
+    post: null,
+    loadingPost: true,
+    hasError: false,
   },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(loadPost.pending, (state, action) => {
+      .addCase(loadPost.pending, (state) => {
         state.loadingPost = true;
-        state.hasErrors = false;
+        state.hasError = false;
       })
       .addCase(loadPost.fulfilled, (state, action) => {
         state.loadingPost = false;
-        state.hasErrors = false;
         state.post = action.payload;
       })
-      .addCase(loadPost.rejected, (state, action) => {
+      .addCase(loadPost.rejected, (state) => {
         state.loadingPost = false;
-        state.hasErrors = true;
+        state.hasError = true;
       });
   },
 });

@@ -1,53 +1,55 @@
-// src/pages/post/Comments.js
-
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from '@mui/styles';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useLocation } from 'react-router-dom';
 import { Card, CardContent, Typography } from '@mui/material';
-import ReactMarkdown from 'react-markdown';
 import { format } from 'timeago.js';
-import CommentsSkeleton from '../../components/Skeletons/CommentsSkeleton/CommentsSkeleton';
+import ReactMarkdown from 'react-markdown';
 import { loadCommentsForPostId, selectComments, isLoadingComments } from '../../features/comments/commentsSlice';
+import CommentsSkeleton from '../../components/Skeletons/CommentsSkeleton/CommentsSkeleton';
 
-const useStyles = makeStyles({
-  comment: {
-    padding: '10px',
-    marginBottom: '10px',
-  },
-});
-
-const Comments = ({ reddit, postId }) => {
-  const classes = useStyles();
+const Comments = () => {
   const dispatch = useDispatch();
+  const { subreddit, postId } = useParams();
   const comments = useSelector(selectComments);
   const loadingComments = useSelector(isLoadingComments);
+  const location = useLocation();
+  const post = location.state?.post || {};
 
   useEffect(() => {
-    console.log('Dispatching loadCommentsForPostId action');
-    dispatch(loadCommentsForPostId({ reddit, id: postId }));
-  }, [dispatch, reddit, postId]);
-
-  if (loadingComments) {
-    return <CommentsSkeleton />;
-  }
+    dispatch(loadCommentsForPostId({ subreddit, postId }));
+  }, [dispatch, subreddit, postId]);
 
   return (
     <div>
-      {comments.map((comment) => (
-        <Card className={classes.comment} key={comment.data.id}>
-          <CardContent>
-            <Typography variant="h6" component="h3">
-              {comment.data.author}
-            </Typography>
-            <Typography color="textSecondary">
-              {format(comment.data.created_utc * 1000)}
-            </Typography>
-            <ReactMarkdown>
-              {comment.data.body}
-            </ReactMarkdown>
-          </CardContent>
-        </Card>
-      ))}
+      <Card>
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            {post.title || 'Loading post title...'}
+          </Typography>
+          <Typography color="textSecondary">
+            {post.created_utc ? format(post.created_utc * 1000) : ''}
+          </Typography>
+          <ReactMarkdown>
+            {post.selftext || 'No content available'}
+          </ReactMarkdown>
+        </CardContent>
+      </Card>
+      {loadingComments ? (
+        <CommentsSkeleton />
+      ) : (
+        comments.map((comment) => (
+          <Card key={comment.data.id}>
+            <CardContent>
+              <Typography variant="h6" component="h4">
+                {comment.data.author} - {format(comment.data.created_utc * 1000)}
+              </Typography>
+              <ReactMarkdown>
+                {comment.data.body}
+              </ReactMarkdown>
+            </CardContent>
+          </Card>
+        ))
+      )}
     </div>
   );
 };
