@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { withStyles } from "@mui/material/styles";
+import { withStyles } from "@mui/styles";
 import fetch from "cross-fetch";
 import TextField from "@mui/material/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import SearchIcon from "@mui/icons-material/Search";
 import parse from "autosuggest-highlight/parse";
@@ -36,8 +36,8 @@ const CssTextField = withStyles({
 
 export const Searchbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [open, setOpen] = React.useState(false);
-  const [options, setOptions] = React.useState([]);
+  const [open, setOpen] = useState(false);
+  const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
 
   React.useEffect(() => {
@@ -46,15 +46,15 @@ export const Searchbar = () => {
       const response = await fetch(
         `https://www.reddit.com/api/subreddit_autocomplete.json?query=${searchTerm}`
       );
-      await sleep(1e3);
+      await sleep(1000); // 1 second delay
       const data = await response.json();
       if (active) {
         setOptions(data.subreddits.map((r) => r));
       }
-      return () => {
-        active = false;
-      };
     })();
+    return () => {
+      active = false;
+    };
   }, [loading, searchTerm]);
 
   React.useEffect(() => {
@@ -63,9 +63,8 @@ export const Searchbar = () => {
     }
   }, [open]);
 
-  const handleChange = ({ target }) => {
-    const term = target.value;
-    setSearchTerm(term);
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
   return (
@@ -73,22 +72,18 @@ export const Searchbar = () => {
       style={{ maxWidth: "600px" }}
       disableClearable={false}
       open={open}
-      onOpen={() => {
-        setOpen(true);
-      }}
-      onClose={() => {
-        setOpen(false);
-      }}
+      onOpen={() => setOpen(true)}
+      onClose={() => setOpen(false)}
       loadingText="Searching, one sec..."
-      getOptionSelected={(option, value) => option.name === value.name}
+      isOptionEqualToValue={(option, value) => option.name === value.name}
       getOptionLabel={(option) => option.name}
       options={options}
       loading={loading}
       renderInput={(params) => (
         <CssTextField
+          {...params}
           style={{ padding: "0" }}
           onChange={handleChange}
-          {...params}
           placeholder="Search..."
           value={searchTerm}
           aria-label="Search field"
@@ -98,11 +93,9 @@ export const Searchbar = () => {
             type: "search",
             startAdornment: <SearchIcon />,
             endAdornment: (
-              <React.Fragment>
-                {loading ? (
-                  <CircularProgress color="inherit" size={20} />
-                ) : null}
-              </React.Fragment>
+              <>
+                {loading ? <CircularProgress color="inherit" size={20} /> : null}
+              </>
             ),
           }}
         />

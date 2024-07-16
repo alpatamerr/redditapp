@@ -1,46 +1,43 @@
 import React from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Subreddit } from "./pages/subreddit/subreddit";
 import { Home } from "./pages/home/home";
-import { Post } from "./pages/post/post";
+import Post from "./pages/post/post";
 import { User } from "./pages/user/user";
 import NotFound from "./pages/notFound/notFound";
 
 const appRoutes = [
   {
     path: "/",
-    page: Home,
+    element: <Home />,
   },
   {
     path: "/filter/:filterTopic",
-    page: Home,
+    element: <Home />,
   },
   {
     path: "/subreddit/:reddit",
-    page: Subreddit,
+    element: <Subreddit />,
   },
-
   {
     path: "/post/:reddit/comments/:id",
-    page: Post,
+    element: <Post />,
   },
   {
     path: "/user/:user",
-    page: User,
+    element: <User />,
   },
 ];
 
-export const Routes = () => {
+export const RoutesComponent = () => {
   return (
     <HashRouter>
-      <Switch>
-        {appRoutes.map(({ path, page }, i) => (
-          <Route path={path} component={page} exact key={`${path}=${i}`} />
+      <Routes>
+        {appRoutes.map(({ path, element }, i) => (
+          <Route path={path} element={element} key={`${path}=${i}`} />
         ))}
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </HashRouter>
   );
 };

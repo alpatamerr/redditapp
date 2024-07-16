@@ -1,7 +1,8 @@
-import { Skeleton } from "@material-ui/lab";
-import classes from "./CommentsSkeleton.module.css";
+import React from 'react';
+import { Skeleton } from '@mui/material';
+import classes from './CommentsSkeleton.module.css';
 
-export const CommentsSkeleton = () => {
+const CommentsSkeleton = () => {
   return (
     <div className={classes.CommentsSkeleton}>
       <div className={classes.headerSkeleton}>
@@ -22,3 +23,5 @@ export const CommentsSkeleton = () => {
     </div>
   );
 };
+
+export default CommentsSkeleton;

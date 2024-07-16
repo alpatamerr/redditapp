@@ -23,17 +23,13 @@ export const PostListItem = ({ post }) => {
     ? Helpers.getSelfText(postData)
     : Helpers.getSelfText(postData).substring(0, 200);
   const selfText = show ? (
-    <ReactMarkdown
-      className={classes.selfText}
-      aria-label="markdown"
-      source={getText}
-    />
+    <ReactMarkdown className={classes.selfText} aria-label="markdown">
+      {getText}
+    </ReactMarkdown>
   ) : (
-    <ReactMarkdown
-      className={classes.selfText}
-      aria-label="markdown"
-      source={getText}
-    />
+    <ReactMarkdown className={classes.selfText} aria-label="markdown">
+      {getText}
+    </ReactMarkdown>
   );
 
   const validLinkCheckForThumbnail = post

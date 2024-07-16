@@ -1,30 +1,28 @@
-import React from "react";
-import classes from "./Comment.module.css";
-import { format } from "timeago.js";
-import { HashLink as Link } from "react-router-hash-link";
-import { Helpers } from "../../helpers/helpers";
-import PublishIcon from '@mui/icons-material/Publish';
-import ReactMarkdown from "react-markdown";
+import React from 'react';
+import { makeStyles } from '@mui/styles';
+import { Card, CardContent, Typography } from '@mui/material';
+import ReactMarkdown from 'react-markdown';
+import { format } from 'timeago.js';
 
-export const Comment = ({ comment }) => {
-  const commentAuthor = comment.author;
-  const timeCreated = format(comment.created_utc * 1000);
-  const upvotes = comment.ups;
-  const commentBody = <ReactMarkdown source={comment.body}></ReactMarkdown>;
+const useStyles = makeStyles({
+  comment: {
+    padding: '10px',
+    marginBottom: '10px',
+  },
+});
 
+const Comment = ({ comment }) => {
+  const classes = useStyles();
   return (
-    <div className={classes.Comment}>
-      <div className={classes.header}>
-        <Link to={`/user/${commentAuthor}#top`}>
-          <p className={classes.author}>{commentAuthor}</p>
-        </Link>
-        <p className={classes.timeCreated}>{timeCreated}</p>
-      </div>
-      <p className={classes.selfText}>{commentBody}</p>
-      <div className={classes.footer}>
-        <PublishIcon />
-        <p className={classes.upvotes}>{Helpers.kFormatter(upvotes)} UPVOTES</p>
-      </div>
-    </div>
+    <Card className={classes.comment}>
+      <CardContent>
+        <Typography variant="body2" component="p">
+          {comment.author} - {format(comment.created_utc * 1000)}
+        </Typography>
+        <ReactMarkdown>{comment.body}</ReactMarkdown>
+      </CardContent>
+    </Card>
   );
 };
+
+export default Comment;

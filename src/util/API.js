@@ -28,9 +28,16 @@ export const API = {
   },
 
   async loadComments(reddit, id) {
+    console.log(`Loading comments for reddit: ${reddit}, postId: ${id}`);
     const comments = await axios
       .get(`https://www.reddit.com/r/${reddit}/comments/${id}.json`)
-      .then((res) => res.data[1].data.children);
+      .then((res) => {
+        console.log('Comments response:', res.data);
+        return res.data[1].data.children;
+      })
+      .catch((error) => {
+        console.error('Error loading comments:', error);
+      });
     return comments;
   },
 

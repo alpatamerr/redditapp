@@ -10,12 +10,12 @@ export const commentsSlice = createSlice({
   name: "comments",
   initialState: {
     comments: [],
+    loadingComments: true,
+    hasError: false,
   },
-  loadingComments: true,
-  hasError: false,
   extraReducers: (builder) => {
     builder
-      .addCase(loadCommentsForPostId.pending, (state, action) => {
+      .addCase(loadCommentsForPostId.pending, (state) => {
         state.loadingComments = true;
         state.hasError = false;
       })
@@ -23,8 +23,10 @@ export const commentsSlice = createSlice({
         state.loadingComments = false;
         state.hasError = false;
         state.comments = action.payload;
+        console.log('Comments loaded:', action.payload);
       })
-      .addCase(loadCommentsForPostId.rejected, (state, action) => {
+      
+      .addCase(loadCommentsForPostId.rejected, (state) => {
         state.loadingComments = false;
         state.hasError = true;
       });
