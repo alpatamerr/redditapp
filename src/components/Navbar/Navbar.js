@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Searchbar } from "./Searchbar/Searchbar.js";
-import { Container } from "@material-ui/core";
-import RedditIcon from "@material-ui/icons/Reddit";
+import { Container } from "@mui/material";
+import RedditIcon from '@mui/icons-material/Reddit';
 import classes from "./Navbar.module.css";
 
 export const Navbar = () => {

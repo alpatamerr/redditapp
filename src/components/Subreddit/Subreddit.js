@@ -1,6 +1,6 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@mui/material";
 import { Helpers } from "../../helpers/helpers";
 import classes from "./Subreddit.module.css";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Posts } from "../../features/posts/Posts";
 import { Subreddits } from "../../features/subreddits/Subreddits";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 import { Filter } from "../../components/Filter/Filter";
 import classes from "./home.module.css";
 

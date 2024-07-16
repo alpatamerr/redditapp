@@ -1,7 +1,7 @@
 import React from "react";
-import WhatshotIcon from "@material-ui/icons/Whatshot";
-import TrendingUpIcon from "@material-ui/icons/TrendingUp";
-import BarChartIcon from "@material-ui/icons/BarChart";
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import { NavLink } from "react-router-dom";
 import classes from "./Filter.module.css";
 

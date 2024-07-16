@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 import { useParams, Link } from "react-router-dom";
 import { HashLink as HLink } from "react-router-hash-link";
 import { useSelector, useDispatch } from "react-redux";

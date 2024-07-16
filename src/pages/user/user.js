@@ -11,7 +11,7 @@ import {
 import { PostListItem } from "../../components/PostListItem/PostListItem";
 import { Subreddits } from "../../features/subreddits/Subreddits";
 import { Navbar } from "../../components/Navbar/Navbar";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 import { About } from "../../components/About/About";
 import { Helpers } from "../../helpers/helpers";
 import classes from "./user.module.css";

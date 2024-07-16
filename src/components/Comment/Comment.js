@@ -3,7 +3,7 @@ import classes from "./Comment.module.css";
 import { format } from "timeago.js";
 import { HashLink as Link } from "react-router-hash-link";
 import { Helpers } from "../../helpers/helpers";
-import PublishIcon from "@material-ui/icons/Publish";
+import PublishIcon from '@mui/icons-material/Publish';
 import ReactMarkdown from "react-markdown";
 
 export const Comment = ({ comment }) => {

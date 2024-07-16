@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectSubreddits, loadSubreddits, reset } from "./subredditsSlice";
 import { Subreddit } from "../../components/Subreddit/Subreddit";
 import { SubredditSkeleton } from "../../components/Skeletons/SubredditSkeleton/Subreddit";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import classes from "./Subreddits.module.css";
 
 export const Subreddits = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Container } from "@material-ui/core";
+import { Avatar, Container } from "@mui/material";
 import classes from "./SubredditHeader.module.css";
 
 export const SubredditHeader = ({ img, backColor, title, icon, reddit }) => {

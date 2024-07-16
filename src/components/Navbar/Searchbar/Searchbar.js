@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/material/styles";
 import fetch from "cross-fetch";
-import TextField from "@material-ui/core/TextField";
+import TextField from "@mui/material/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import SearchIcon from "@material-ui/icons/Search";
+import CircularProgress from "@mui/material/CircularProgress";
+import SearchIcon from "@mui/icons-material/Search";
 import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
 import classes from "./Searchbar.module.css";
